@@ -1,0 +1,21 @@
+{
+  "name": "quiteer-vue-directives",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm -F @quiteer/directives dev",
+    "build": "pnpm -F @quiteer/directives build"
+  },
+  "devDependencies": {
+    "@quiteer/eslint-config": "^0.0.3",
+    "@quiteer/ts-config": "^0.0.6",
+    "eslint": "^8.39.0",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.5"
+  }
+}

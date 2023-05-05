@@ -1,0 +1,8 @@
+{
+  "extends": "@quiteer/ts-config/tsconfig.web.json",
+  "compilerOptions": {
+    "suppressImplicitAnyIndexErrors": true,
+    "ignoreDeprecations": "5.0"
+  },
+  "include": ["*.ts", "*.d.ts", "directive/ellipsis.ts"]
+}
