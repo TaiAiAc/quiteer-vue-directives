@@ -5,6 +5,7 @@ import DebounceDemo from './components/DebounceDemo.vue'
 import EllipsisDemo from './components/EllipsisDemo.vue'
 import IntersectingDemo from './components/IntersectingDemo.vue'
 import CopyDemo from './components/CopyDemo.vue'
+import LazyDemo from './components/LazyDemo.vue'
 </script>
 
 <template>
@@ -16,6 +17,7 @@ import CopyDemo from './components/CopyDemo.vue'
     <DebounceDemo />
     <EllipsisDemo />
     <IntersectingDemo />
+    <LazyDemo />
   </div>
 </template>
 

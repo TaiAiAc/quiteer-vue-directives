@@ -99,6 +99,30 @@ app.use(QuiteerDirectives)
 </template>
 ```
 
+### v-lazy
+
+图片懒加载指令，当图片进入视口时才加载真实图片地址。
+
+```vue
+<template>
+  <img
+    v-lazy="{
+      loading: '/loading.gif',
+      error: '/error.jpg',
+      onLoad: () => console.log('加载成功'),
+      onError: () => console.log('加载失败'),
+    }"
+    src="/large-image.jpg"
+  >
+</template>
+```
+
+支持以下配置选项：
+- `loading`: 加载中显示的占位图片地址
+- `error`: 加载失败时显示的替代图片地址
+- `onLoad`: 图片加载成功的回调函数
+- `onError`: 图片加载失败的回调函数
+
 ## 开发
 
 ```bash

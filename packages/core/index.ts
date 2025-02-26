@@ -5,8 +5,9 @@ import loading from './directive/loading'
 import throttle from './directive/throttle'
 import debounce from './directive/debounce'
 import copy from './directive/copy'
+import lazy from './directive/lazy'
 
-export { loading, ellipsis, intersecting, throttle, debounce, copy }
+export { loading, ellipsis, intersecting, throttle, debounce, copy, lazy }
 
 export default {
   install: (app: App) => {
@@ -16,5 +17,6 @@ export default {
     app.directive(throttle.name, throttle.directive)
     app.directive(debounce.name, debounce.directive)
     app.directive(copy.name, copy.directive)
+    app.directive(lazy.name, lazy.directive)
   }
 }
