@@ -6,18 +6,20 @@ import EllipsisDemo from './components/EllipsisDemo.vue'
 import IntersectingDemo from './components/IntersectingDemo.vue'
 import CopyDemo from './components/CopyDemo.vue'
 import LazyDemo from './components/LazyDemo.vue'
+import ClickOutsideDemo from './components/ClickOutsideDemo.vue'
 </script>
 
 <template>
   <div class="container">
     <h1>Vue 指令示例</h1>
-    <CopyDemo />
     <LoadingDemo />
     <ThrottleDemo />
     <DebounceDemo />
     <EllipsisDemo />
     <IntersectingDemo />
     <LazyDemo />
+    <CopyDemo />
+    <ClickOutsideDemo />
   </div>
 </template>
 

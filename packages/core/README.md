@@ -92,6 +92,68 @@ interface Params {
 }
 ```
 
+### v-click-outside
+
+点击元素外部区域时触发回调的指令。
+
+#### 参数
+
+```ts
+interface ClickOutsideOptions {
+  // 点击外部区域时的回调函数
+  handler: () => void
+  // 是否在点击外部时立即触发回调，默认为 true
+  immediate?: boolean
+  // 是否在指令绑定时添加事件监听，默认为 true
+  attachOnMount?: boolean
+}
+```
+
+#### 使用注意事项
+
+1. **重要：** 在触发按钮上必须添加 `@click.stop` 修饰符，防止事件冒泡导致指令误触发：
+```vue
+<button @click.stop="toggleDropdown">
+触发按钮
+</button>
+
+<div v-if="visible" v-click-outside="() => visible = false">
+下拉内容
+</div>
+```
+
+2. 常见使用场景：
+   - 下拉菜单：点击外部自动关闭
+   - 模态框：点击遮罩层关闭
+   - 自定义面板：支持延迟关闭等配置
+
+#### 示例
+
+```vue
+<!-- 基础用法 - 下拉菜单 -->
+<div class="dropdown">
+  <button @click.stop="toggleDropdown">显示下拉菜单</button>
+  <div v-if="visible"
+       v-click-outside="() => visible = false"
+       class="dropdown-menu">
+    下拉内容
+  </div>
+</div>
+
+<!-- 自定义配置 - 延迟关闭 -->
+<div v-if="visible"
+     v-click-outside="{
+       handler: () => {
+         visible = false
+         console.log('点击了外部区域')
+       },
+       immediate: false
+     }"
+>
+  内容面板
+</div>
+```
+
 ### v-debounce
 
 防抖指令，用于限制事件的触发频率，避免频繁触发。

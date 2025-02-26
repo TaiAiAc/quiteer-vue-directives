@@ -49,8 +49,8 @@ const onError = () => {
           v-for="i in 6"
           :key="i"
           v-lazy="{
-            loading: 'https://via.placeholder.com/200x150?text=Loading...',
-            error: 'https://via.placeholder.com/200x150?text=Error',
+            loading: 'https://raw.githubusercontent.com/quiteer/quiteer-vue-directives/main/playground/public/loading.png',
+            error: 'https://raw.githubusercontent.com/quiteer/quiteer-vue-directives/main/playground/public/error.png',
           }"
           :src="`https://picsum.photos/200/150?random=${i}`"
           :alt="`Random Image ${i + 2}`"
