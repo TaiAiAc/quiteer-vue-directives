@@ -17,5 +17,15 @@
     "tsup": "^6.7.0",
     "typescript": "^5.0.4",
     "vite": "^4.3.5"
+  },
+  "pnpm": {
+    "overrides": {
+      "@quiteer/directives": "link:../packages/core",
+      "directives": "link:../../../../Library/pnpm/global/5/node_modules/@quiteer/directives"
+    }
+  },
+  "dependencies": {
+    "@quiteer/directives": "link:../packages/core",
+    "directives": "link:../../../../../Library/pnpm/global/5/node_modules/@quiteer/directives"
   }
 }

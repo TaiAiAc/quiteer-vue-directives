@@ -7,7 +7,14 @@ export default defineConfig({
   outDir: 'dist',
   splitting: false,
   clean: true,
-  minify: false,
-  format: 'esm',
-  external: ['vue']
+  minify: true,
+  format: ['esm', 'cjs'],
+  sourcemap: true,
+  treeshake: true,
+  external: ['vue'],
+  outExtension({ format }) {
+    return {
+      js: format === 'cjs' ? '.js' : '.mjs'
+    }
+  }
 })

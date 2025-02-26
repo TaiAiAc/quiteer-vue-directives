@@ -5,6 +5,11 @@
     "baseUrl": ".",
     "composite": true,
     "declaration": true,
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": ["node_modules/@types"],
+    "skipLibCheck": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   }
 }

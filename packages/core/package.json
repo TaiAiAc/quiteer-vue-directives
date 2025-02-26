@@ -5,9 +5,17 @@
   "author": "quiteer",
   "license": "ISC",
   "keywords": ["vue3"],
-  "main": "index.mjs",
-  "module": "dist/client/index.mjs",
-  "types": "dist/client/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
@@ -25,5 +33,6 @@
   },
   "dependencies": {
     "vue": "^3.2.47"
-  }
+  },
+  "devDependencies": {}
 }
