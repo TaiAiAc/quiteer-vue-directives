@@ -4,6 +4,55 @@
 
 ## API 文档
 
+### v-copy
+
+点击复制文本内容的指令。
+
+#### 参数
+
+```ts
+interface CopyOptions {
+  // 要复制的文本内容，如果不提供则复制元素的 textContent
+  text?: string
+  // 复制成功时的回调函数
+  onSuccess?: () => void
+  // 复制失败时的回调函数
+  onError?: (error: Error) => void
+  // 复制成功时的提示文本
+  successText?: string
+  // 复制失败时的提示文本
+  errorText?: string
+}
+```
+
+#### 示例
+
+```vue
+<!-- 复制元素内容 -->
+<div v-copy>
+点击复制这段文本
+</div>
+
+<!-- 复制指定文本 -->
+<button v-copy="'要复制的文本'">
+点击复制
+</button>
+
+<!-- 自定义配置 -->
+<button v-copy="{
+  text: '要复制的文本',
+  successText: '已复制到剪贴板',
+  errorText: '复制失败，请重试',
+  onSuccess: () => console.log('复制成功'),
+  onError: (error) => console.error('复制失败', error)
+}"
+>
+复制
+</button>
+```
+
+## API 文档
+
 ### v-loading
 
 加载状态指示器，为元素添加加载中状态的遮罩层。

@@ -4,11 +4,13 @@ import ThrottleDemo from './components/ThrottleDemo.vue'
 import DebounceDemo from './components/DebounceDemo.vue'
 import EllipsisDemo from './components/EllipsisDemo.vue'
 import IntersectingDemo from './components/IntersectingDemo.vue'
+import CopyDemo from './components/CopyDemo.vue'
 </script>
 
 <template>
   <div class="container">
     <h1>Vue 指令示例</h1>
+    <CopyDemo />
     <LoadingDemo />
     <ThrottleDemo />
     <DebounceDemo />

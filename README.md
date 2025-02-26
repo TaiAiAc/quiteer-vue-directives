@@ -1,6 +1,6 @@
 # quiteer-vue-directives
 
-一个基于 Vue 3 的自定义指令集合，提供了一系列实用的指令来增强您的 Vue 应用程序。
+一个实用的 Vue 3 自定义指令集合，提供了一系列常用的功能指令。
 
 ## 安装
 
@@ -17,117 +17,86 @@ pnpm add @quiteer/directives
 
 ## 使用
 
+在你的 Vue 应用中注册指令：
+
 ```ts
 import { createApp } from 'vue'
-import { directives } from '@quiteer/directives'
+import QuiteerDirectives from '@quiteer/directives'
 
 const app = createApp(App)
-app.use(directives)
+app.use(QuiteerDirectives)
 ```
 
 ## 指令列表
 
 ### v-loading
-加载状态指示器，为元素添加加载中状态的遮罩层。
+
+为元素添加加载状态。
 
 ```vue
-<!-- 基础用法 -->
-<div v-loading="true">
-内容
-</div>
-
-<!-- 自定义配置 -->
-<div v-loading="{
-  show: true,
-  text: '加载中...',
-  background: 'rgba(0, 0, 0, 0.7)',
-  spinner: '<div class="custom-spinner"
-></div>'
-}">内容</div>
+<template>
+  <div v-loading="isLoading">
+    内容
+  </div>
+</template>
 ```
 
-### v-intersecting
-元素可见性监听，当元素进入或离开视口时触发回调。
+### v-copy
+
+点击元素复制文本内容。
 
 ```vue
-<!-- 监听元素显示 -->
-<div v-intersecting:show="handleShow">
-内容
-</div>
-
-<!-- 监听元素隐藏 -->
-<div v-intersecting:hide="handleHide">
-内容
-</div>
-
-<!-- 同时监听显示和隐藏 -->
-<div v-intersecting="{
-  show: handleShow,
-  hide: handleHide
-}"
->
-内容
-</div>
-```
-
-### v-debounce
-防抖指令，用于限制事件的触发频率，避免频繁触发。
-
-```vue
-<!-- 基础用法 -->
-<button v-debounce="handleClick">
-点击
-</button>
-
-<!-- 自定义配置 -->
-<button v-debounce="{
-  handler: handleClick,
-  options: {
-    wait: 500,
-    immediate: true
-  }
-}"
->
-点击
-</button>
+<template>
+  <button v-copy="textToCopy">
+    点击复制
+  </button>
+</template>
 ```
 
 ### v-throttle
-节流指令，用于限制事件在一定时间内只能触发一次。
+
+为事件添加节流功能。
 
 ```vue
-<!-- 基础用法 -->
-<button v-throttle="handleClick">
-点击
-</button>
+<template>
+  <button v-throttle="{ fn: handleClick, wait: 1000 }">
+    节流按钮
+  </button>
+</template>
+```
 
-<!-- 自定义配置 -->
-<button v-throttle="{
-  handler: handleClick,
-  options: {
-    wait: 500,
-    leading: true,
-    trailing: true
-  }
-}"
->
-点击
-</button>
+### v-debounce
+
+为事件添加防抖功能。
+
+```vue
+<template>
+  <input v-debounce="{ fn: handleInput, wait: 500 }">
+</template>
 ```
 
 ### v-ellipsis
-文本省略指令，用于多行文本的省略显示。
+
+文本超出显示省略号。
 
 ```vue
-<!-- 单行省略 -->
-<div v-ellipsis="1">
-长文本内容
-</div>
+<template>
+  <div v-ellipsis="{ line: 2 }">
+    长文本内容
+  </div>
+</template>
+```
 
-<!-- 多行省略 -->
-<div v-ellipsis="3">
-长文本内容
-</div>
+### v-intersecting
+
+监听元素是否进入视口。
+
+```vue
+<template>
+  <div v-intersecting="handleIntersect">
+    监听元素
+  </div>
+</template>
 ```
 
 ## 开发
@@ -149,4 +118,4 @@ pnpm build
 
 ## License
 
-[ISC](LICENSE)
+[MIT](./LICENSE)
