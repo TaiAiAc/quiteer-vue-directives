@@ -7,6 +7,7 @@ import IntersectingDemo from './components/IntersectingDemo.vue'
 import CopyDemo from './components/CopyDemo.vue'
 import LazyDemo from './components/LazyDemo.vue'
 import ClickOutsideDemo from './components/ClickOutsideDemo.vue'
+import WatermarkDemo from './components/WatermarkDemo.vue'
 </script>
 
 <template>
@@ -20,6 +21,7 @@ import ClickOutsideDemo from './components/ClickOutsideDemo.vue'
     <LazyDemo />
     <CopyDemo />
     <ClickOutsideDemo />
+    <WatermarkDemo />
   </div>
 </template>
 

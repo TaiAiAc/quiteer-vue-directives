@@ -7,8 +7,9 @@ import debounce from './directive/debounce'
 import copy from './directive/copy'
 import lazy from './directive/lazy'
 import clickOutside from './directive/clickOutside'
+import watermark from './directive/watermark'
 
-export { loading, ellipsis, intersecting, throttle, debounce, copy, lazy, clickOutside }
+export { loading, ellipsis, intersecting, throttle, debounce, copy, lazy, clickOutside, watermark }
 
 export default {
   install: (app: App) => {
@@ -20,5 +21,6 @@ export default {
     app.directive(copy.name, copy.directive)
     app.directive(lazy.name, lazy.directive)
     app.directive(clickOutside.name, clickOutside.directive)
+    app.directive(watermark.name, watermark.directive)
   }
 }

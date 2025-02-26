@@ -41,21 +41,53 @@ app.use(QuiteerDirectives)
 </template>
 ```
 
+配置选项：
+- `value`: Boolean 类型，控制加载状态的显示/隐藏
+- `text`: 加载提示文本，默认为 "加载中..."
+- `background`: 加载遮罩层背景色，默认为 "rgba(255, 255, 255, 0.8)"
+- `spinner`: 自定义加载图标的类名
+
 ### v-copy
 
 点击元素复制文本内容。
 
 ```vue
 <template>
-  <button v-copy="textToCopy">
+  <!-- 基础用法 - 复制元素内容 -->
+  <div v-copy>
+    点击复制这段文本
+  </div>
+
+  <!-- 复制指定文本 -->
+  <button v-copy="'要复制的文本内容'">
     点击复制
+  </button>
+
+  <!-- 自定义配置 -->
+  <button
+    v-copy="{
+      text: '使用自定义配置的复制内容',
+      successText: '已成功复制到剪贴板',
+      errorText: '复制失败，请重试',
+      onSuccess: () => console.log('复制成功'),
+      onError: (error) => console.error('复制失败', error),
+    }"
+  >
+    复制（自定义配置）
   </button>
 </template>
 ```
 
+配置选项：
+- `text`: 要复制的文本内容
+- `successText`: 复制成功时的提示文本
+- `errorText`: 复制失败时的提示文本
+- `onSuccess`: 复制成功的回调函数
+- `onError`: 复制失败的回调函数
+
 ### v-throttle
 
-为事件添加节流功能。
+为事件添加节流功能，在指定时间内只执行一次事件处理函数。
 
 ```vue
 <template>
@@ -65,9 +97,15 @@ app.use(QuiteerDirectives)
 </template>
 ```
 
+配置选项：
+- `fn`: 要执行的函数
+- `wait`: 节流等待时间，单位为毫秒，默认为 300ms
+- `leading`: 是否在延迟开始前执行，默认为 true
+- `trailing`: 是否在延迟结束后执行，默认为 true
+
 ### v-debounce
 
-为事件添加防抖功能。
+为事件添加防抖功能，在连续触发事件时，只在最后一次触发后执行事件处理函数。
 
 ```vue
 <template>
@@ -75,53 +113,91 @@ app.use(QuiteerDirectives)
 </template>
 ```
 
-### v-ellipsis
+配置选项：
+- `fn`: 要执行的函数
+- `wait`: 防抖等待时间，单位为毫秒，默认为 300ms
+- `immediate`: 是否立即执行，默认为 false
 
-文本超出显示省略号。
+### v-watermark
+
+为元素添加水印效果。
 
 ```vue
 <template>
-  <div v-ellipsis="{ line: 2 }">
-    长文本内容
+  <!-- 基础用法 -->
+  <div v-watermark="'示例水印'">
+    内容
+  </div>
+
+  <!-- 自定义文本水印 -->
+  <div
+    v-watermark="{
+      text: 'CONFIDENTIAL',
+      fontSize: '16px',
+      color: 'rgba(255, 0, 0, 0.1)',
+      rotate: -45,
+      gap: 100,
+      zIndex: 100,
+    }"
+  >
+    内容
+  </div>
+
+  <!-- 图片水印 -->
+  <div
+    v-watermark="{
+      image: 'watermark.png',
+      imageWidth: 24,
+      imageHeight: 24,
+      imageOpacity: 0.1,
+      rotate: -30,
+      gap: 80,
+    }"
+  >
+    内容
   </div>
 </template>
 ```
 
+配置选项：
+- `text`: 水印文本内容
+- `image`: 水印图片的 URL 或 Base64 字符串
+- `imageWidth`: 图片水印的宽度，默认为 30px
+- `imageHeight`: 图片水印的高度，默认为 30px
+- `imageOpacity`: 图片水印的透明度，默认为 0.1
+- `fontSize`: 字体大小，默认为 '14px'
+- `color`: 字体颜色，默认为 'rgba(0, 0, 0, 0.1)'
+- `rotate`: 旋转角度，默认为 -30 度
+- `gap`: 水印之间的间距，默认为 100px
+- `zIndex`: 水印层级，默认为 1000
+
 ### v-intersecting
 
-监听元素是否进入视口。
+监听元素是否进入视口，可用于实现懒加载、无限滚动等功能。
 
 ```vue
 <template>
-  <div v-intersecting="handleIntersect">
+  <div
+    v-intersecting="{
+      handler: handleIntersect,
+      options: {
+        threshold: 0.5,
+        root: null,
+        rootMargin: '0px',
+      },
+    }"
+  >
     监听元素
   </div>
 </template>
 ```
 
-### v-lazy
-
-图片懒加载指令，当图片进入视口时才加载真实图片地址。
-
-```vue
-<template>
-  <img
-    v-lazy="{
-      loading: '/loading.gif',
-      error: '/error.jpg',
-      onLoad: () => console.log('加载成功'),
-      onError: () => console.log('加载失败'),
-    }"
-    src="/large-image.jpg"
-  >
-</template>
-```
-
-支持以下配置选项：
-- `loading`: 加载中显示的占位图片地址
-- `error`: 加载失败时显示的替代图片地址
-- `onLoad`: 图片加载成功的回调函数
-- `onError`: 图片加载失败的回调函数
+配置选项：
+- `handler`: 元素进入/离开视口时的回调函数
+- `options`: IntersectionObserver 的配置选项
+  - `threshold`: 触发回调的可见比例阈值，默认为 0
+  - `root`: 指定根元素，默认为浏览器视口
+  - `rootMargin`: 根元素的外边距，默认为 '0px'
 
 ## 开发
 
@@ -136,9 +212,9 @@ pnpm dev
 pnpm build
 ```
 
-## 文档
+## 在线示例
 
-详细的使用文档和 API 说明请查看 [@quiteer/directives 文档](./packages/core/README.md)。
+访问我们的 [在线示例](https://quiteer-vue-directives.vercel.app) 查看所有指令的实际效果和用法示例。
 
 ## License
 
