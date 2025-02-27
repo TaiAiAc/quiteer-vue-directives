@@ -1,9 +1,17 @@
 {
   "name": "@quiteer/directives",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "vue3 directive",
   "author": "quiteer",
   "license": "ISC",
+  "homepage": "https://github.com/TaiAiAc/quiteer-vue-directives#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TaiAiAc/quiteer-vue-directives.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TaiAiAc/quiteer-vue-directives/issues"
+  },
   "keywords": ["vue3"],
   "exports": {
     ".": {
@@ -16,10 +24,6 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  },
   "files": [
     "dist"
   ],

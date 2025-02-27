@@ -212,9 +212,6 @@ pnpm dev
 pnpm build
 ```
 
-## 在线示例
-
-访问我们的 [在线示例](https://quiteer-vue-directives.vercel.app) 查看所有指令的实际效果和用法示例。
 
 ## License
 
