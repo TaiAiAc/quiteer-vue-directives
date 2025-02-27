@@ -306,4 +306,4 @@ const handleHide = (isIntersecting: boolean) => {
 
 ## License
 
-[ISC](LICENSE)
+[MIT](LICENSE)

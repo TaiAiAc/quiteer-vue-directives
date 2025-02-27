@@ -38,7 +38,7 @@ const showBackgroundLoading = () => {
     <h2>v-loading 指令</h2>
 
     <!-- 基础用法 -->
-    <div v-loading="loading" class="demo-box">
+    <div v-loading="{ a: '' }" class="demo-box">
       <h3>基础用法</h3>
       <p>默认的加载效果</p>
       <button @click="showBasicLoading">

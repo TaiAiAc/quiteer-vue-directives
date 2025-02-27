@@ -20,7 +20,7 @@ declare global {
  *   onError: () => console.log('加载失败')
  * }"
  */
-interface LazyOptions {
+export interface LazyOptions {
   /**
    * 加载中显示的占位图片地址
    */

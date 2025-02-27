@@ -39,6 +39,7 @@ interface LoadingOptions {
 }
 
 type LoadingValue = boolean | LoadingOptions
+export type { LoadingValue, LoadingOptions }
 
 const createLoadingElement = (options: LoadingOptions): HTMLDivElement => {
   const mask = document.createElement('div')

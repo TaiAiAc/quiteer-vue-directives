@@ -6,7 +6,7 @@ declare global {
   }
 }
 
-interface CopyOptions {
+export interface CopyOptions {
   /**
    * 要复制的文本内容
    * 如果不提供，则复制元素的 textContent
@@ -36,7 +36,7 @@ interface CopyOptions {
   errorText?: string
 }
 
-type CopyValue = string | CopyOptions
+export type CopyValue = string | CopyOptions
 
 const showToast = (message: string): void => {
   const toast = document.createElement('div')

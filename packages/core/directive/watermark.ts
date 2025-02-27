@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-interface WatermarkOptions {
+export interface WatermarkOptions {
   /**
    * 水印文本内容
    */
@@ -73,7 +73,7 @@ interface WatermarkOptions {
   pattern?: 'cross' | 'grid'
 }
 
-type WatermarkValue = string | WatermarkOptions
+export type WatermarkValue = string | WatermarkOptions
 
 const createWatermark = (container: HTMLElement, options: WatermarkOptions = {}): HTMLDivElement | undefined => {
   try {

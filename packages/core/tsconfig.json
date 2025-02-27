@@ -4,5 +4,5 @@
     "forceConsistentCasingInFileNames": true,
     "ignoreDeprecations": "5.0"
   },
-  "include": ["*.ts", "*.d.ts", "directive/ellipsis.ts"]
+  "include": ["*.ts", "*.d.ts", "directive/**/*.ts"]
 }

@@ -6,7 +6,7 @@ declare global {
   }
 }
 
-interface ThrottleOptions {
+export interface ThrottleOptions {
   /**
    * 节流延迟时间（毫秒）
    * @default 300
@@ -26,7 +26,7 @@ interface ThrottleOptions {
   trailing?: boolean
 }
 
-type ThrottleValue = Function | { handler: Function; options?: ThrottleOptions }
+export type ThrottleValue = Function | { handler: Function; options?: ThrottleOptions }
 
 const throttle = (fn: Function, options: ThrottleOptions = {}) => {
   const { wait = 300, leading = true, trailing = true } = options

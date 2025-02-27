@@ -6,7 +6,10 @@ declare global {
   }
 }
 
-interface ClickOutsideOptions {
+/**
+ * v-click-outside 指令的配置选项
+ */
+export interface ClickOutsideOptions {
   /**
    * 点击外部时的回调函数
    */
@@ -25,7 +28,19 @@ interface ClickOutsideOptions {
   attachOnMount?: boolean
 }
 
-type ClickOutsideValue = (() => void) | ClickOutsideOptions
+/**
+ * v-click-outside 指令的值类型
+ * 可以是一个回调函数或配置对象
+ * @example
+ * ```vue
+ * <!-- 基础用法 -->
+ * <div v-click-outside="() => visible = false">
+ *
+ * <!-- 配置对象用法 -->
+ * <div v-click-outside="{ handler: () => visible = false, immediate: false }">
+ * ```
+ */
+export type ClickOutsideValue = (() => void) | ClickOutsideOptions
 
 const defaultOptions: Partial<ClickOutsideOptions> = {
   immediate: true,
